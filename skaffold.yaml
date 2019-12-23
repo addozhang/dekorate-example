@@ -1,0 +1,13 @@
+apiVersion: skaffold/v1
+kind: Config
+metadata:
+  name: dekorate-example
+build:
+  artifacts:
+  - image: addo/dekorate-example
+    jib: {}
+deploy:
+  kubectl:
+    manifests:
+    - target/classes/META-INF/dekorate/kubernetes.json
+    - target/classes/META-INF/dekorate/kubernetes.yml
